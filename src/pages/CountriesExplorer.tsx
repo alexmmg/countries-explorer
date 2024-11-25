@@ -87,14 +87,15 @@ const CountriesExplorer = () => {
 
   const handleCountryClick = async (
     countryName: string,
-    countryCode: string
+    countryCode: string,
+    capital: string | null
   ) => {
     setSelectedCountry(countryName);
     setSelectedCountryCode(countryCode);
     reexecuteQuery();
 
     try {
-      const weatherData = await fetchWeather(countryName);
+      const weatherData = await fetchWeather(capital || "");
       setWeather(weatherData);
       setIsModalVisible(true);
     } catch {

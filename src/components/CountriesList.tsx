@@ -6,7 +6,8 @@ interface CountriesListProps {
   countries: TCountry[];
   handleCountryClick: (
     countryName: string,
-    countryCode: string
+    countryCode: string,
+    capital: string | null
   ) => Promise<void>;
 }
 

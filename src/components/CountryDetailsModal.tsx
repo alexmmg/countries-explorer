@@ -23,7 +23,7 @@ const CountryDetailsModal = ({
       open={isModalVisible}
       onCancel={handleCloseModal}
       footer={null}
-      width={400}
+      // width={400}
     >
       <Row gutter={16}>
         <Col span={24}>

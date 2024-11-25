@@ -5,13 +5,14 @@ interface ICountryDetailsProps {
   country: TCountry;
   handleCountryClick: (
     countryName: string,
-    countryCode: string
+    countryCode: string,
+    capital: string | null
   ) => Promise<void>;
 }
 
 const CountryCard = ({ country, handleCountryClick }: ICountryDetailsProps) => {
   const onCountryClick = () => {
-    handleCountryClick(country.name, country.code);
+    handleCountryClick(country.name, country.code, country.capital);
   };
 
   return (
