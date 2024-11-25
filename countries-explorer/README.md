@@ -1,50 +1,93 @@
-# React + TypeScript + Vite
+# Countries Explorer Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a single-page application (SPA) built using **React**, **TypeScript**, and **GraphQL**. The application allows users to explore countries by searching, filtering by continent or language, and sorting by name or continent. Additionally, users can view detailed country information and check the current weather for a selected country.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Search for countries by name.
+- Filter countries by continent and language.
+- Sort countries by name or continent.
+- View detailed country information including languages, currencies
+- Fetch and display the current weather for the selected country.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Architecture and Design
 
-- Configure the top-level `parserOptions` property like this:
+### Architecture
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+The application uses a component-based architecture with the following structure:
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- **Pages**: Contains the main page, `CountriesExplorer`.
+- **Components**: Modular components for UI elements like filters, modal, and country list.
+- **GraphQL Queries**: Encapsulated in separate files to decouple data fetching logic.
+- **State Management**: React's `useState` and `useEffect` hooks for managing local state.
+- **Styling**: Styled-components for consistent, scoped styles.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### Benefits
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+1. **Modular and Scalable**: Components are reusable and easy to maintain, reducing code duplication.
+2. **Type Safety**: TypeScript ensures type checking at compile time, preventing runtime errors.
+3. **Efficient Data Fetching**: GraphQL reduces over-fetching by allowing precise queries.
+4. **Performance**: Debouncing the search input improves user experience by reducing unnecessary re-renders.
+
+---
+
+## Challenges Faced
+
+### 1. **Managing Asynchronous State**
+
+**Problem**: Ensuring smooth debounced search functionality without blocking user input.  
+**Solution**: Used `useEffect` with a timeout for debouncing to update the search term after a delay.
+
+### 2. **Integrating GraphQL**
+
+**Problem**: Handling GraphQL queries with optional filters dynamically.  
+**Solution**: Adjusted query variables and ensured undefined values are excluded from the request.
+
+### 2. **Integrating GraphQL and Typing Queries**
+
+**Problem**: Handling GraphQL queries dynamically with proper type safety.  
+**Solution**: Used the `gql.tada`, to generate and apply TypeScript types for GraphQL queries and responses.
+Using `gql.tada` ensures that all queries return strongly-typed data, preventing runtime errors due to mismatches.
+
+#### Why This Approach Was Chosen:
+
+- Provides **strict type safety** for GraphQL operations.
+- Makes queries more readable and maintainable.
+- Reduces manual work when the GraphQL schema changes.
+
+#### Commands Used:
+
+To generate types from the GraphQL schema:
+
+````bash
+npm run generate
+
+### Next Steps
+
+If more time was available:
+
+- Add unit tests for all components, including GraphQL integration.
+- Implement better error handling for API failures.
+- Optimize UI for accessibility and performance.
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+Ensure you have the following installed:
+
+- Node.js (>= 18.x)
+- npm or Yarn
+- Git
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/alexmmg/countries-explorer.git
+   cd countries-explorer
+````

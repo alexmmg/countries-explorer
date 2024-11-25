@@ -3,6 +3,10 @@
 
   "compilerOptions": {
     "strict": true,
+    "types": ["vitest", "node", "jest", "@testing-library/jest-dom"],
+    "module": "ESNext",
+    "target": "ESNext",
+    "jsx": "react-jsx",
     "plugins": [
       {
         "name": "gql.tada/ts-plugin",

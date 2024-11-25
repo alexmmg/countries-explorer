@@ -21,7 +21,7 @@ const CountryCard = ({ country, handleCountryClick }: ICountryDetailsProps) => {
       onClick={onCountryClick}
       hoverable
     >
-      <p>Region: {country.continent.name}</p>
+      <p>Continent: {country.continent.name}</p>
       <p>Capital: {country.capital || "N/A"}</p>
     </StyledCard>
   );
