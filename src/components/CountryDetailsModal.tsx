@@ -32,7 +32,7 @@ const CountryDetailsModal = ({
           {weather ? (
             <div style={{ display: "flex", alignItems: "center" }}>
               <WeatherIcon
-                src={`http://openweathermap.org/img/wn/${weather?.weather[0].icon}@2x.png`}
+                src={`https://openweathermap.org/img/wn/${weather?.weather[0].icon}@2x.png`}
                 alt={weather?.weather[0].description}
               />
               <div>

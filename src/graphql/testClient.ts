@@ -6,6 +6,6 @@ import {
 } from "urql";
 
 export const testClient = createClient({
-  url: "http://mocked-graphql-api", // Условный URL для тестов
+  url: "http://mocked-graphql-api",
   exchanges: [debugExchange, cacheExchange, fetchExchange],
 });
