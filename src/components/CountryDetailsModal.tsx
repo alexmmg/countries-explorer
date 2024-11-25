@@ -20,7 +20,6 @@ const CountryDetailsModal = ({
   return (
     <Modal
       title={selectedCountry}
-      centered
       open={isModalVisible}
       onCancel={handleCloseModal}
       footer={null}
