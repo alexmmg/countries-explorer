@@ -18,6 +18,7 @@ export const fetchWeather = async (city: string) => {
     if (error instanceof AxiosError) {
       notification.error({
         message: error?.response?.data?.message,
+        duration: 5,
       });
     }
   }

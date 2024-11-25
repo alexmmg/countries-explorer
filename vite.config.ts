@@ -10,4 +10,5 @@ export default defineConfig({
     environment: "jsdom",
     setupFiles: "./setupTests.ts",
   },
+  base: "/countries-explorer",
 });
