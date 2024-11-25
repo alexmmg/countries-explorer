@@ -47,7 +47,7 @@ The application uses a component-based architecture with the following structure
 **Problem**: Handling GraphQL queries with optional filters dynamically.  
 **Solution**: Adjusted query variables and ensured undefined values are excluded from the request.
 
-### 2. **Integrating GraphQL and Typing Queries**
+### 3. **Integrating GraphQL and Typing Queries**
 
 **Problem**: Handling GraphQL queries dynamically with proper type safety.  
 **Solution**: Used the `gql.tada`, to generate and apply TypeScript types for GraphQL queries and responses.
@@ -63,16 +63,16 @@ Using `gql.tada` ensures that all queries return strongly-typed data, preventing
 
 To generate types from the GraphQL schema:
 
-````bash
-npm run generate
-
-### Next Steps
-
-If more time was available:
+#### If more time was available:
 
 - Add unit tests for all components, including GraphQL integration.
 - Implement better error handling for API failures.
 - Optimize UI for accessibility and performance.
+
+````bash
+npm run generate
+
+### Next Steps
 
 ---
 
