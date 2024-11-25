@@ -1,0 +1,18 @@
+{
+  "files": [],
+
+  "compilerOptions": {
+    "strict": true,
+    "plugins": [
+      {
+        "name": "gql.tada/ts-plugin",
+        "schema": "https://countries.trevorblades.com/",
+        "tadaOutputLocation": "./src/graphql-env.d.ts"
+      }
+    ]
+  },
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
+}
