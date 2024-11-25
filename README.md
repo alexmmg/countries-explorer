@@ -1,3 +1,5 @@
+# Demo app - https://alexmmg.github.io/countries-explorer/
+
 # Countries Explorer Application
 
 This is a single-page application (SPA) built using **React**, **TypeScript**, and **GraphQL**. The application allows users to explore countries by searching, filtering by continent or language, and sorting by name or continent. Additionally, users can view detailed country information and check the current weather for a selected country.
